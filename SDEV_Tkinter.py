@@ -1,6 +1,6 @@
 from tkinter import *
 
-
+#functions
 items = []
  
 def openSecondWindow ():
