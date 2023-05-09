@@ -5,15 +5,15 @@ items = []
  
 def openSecondWindow ():
     secondWindow = Toplevel()
-    secondWindow.title("Welcome to the Application!")
+    secondWindow.title("To-do List Menu")
     secondWindow.geometry("500x500")
     secondWindow.config(background="lightblue")
-    heading = Label(secondWindow, text="Enter List Item:", fg="black")
+    heading = Label(secondWindow, text="Enter List Item:", fg="black", bg='lightblue')
     heading.config(font=("Times New Roman", 24))
     heading.pack(padx=10, pady=10)
     userEntry = Entry(secondWindow)
     userEntry.pack(padx=10, pady=10)
-    buttonFrame = Frame(secondWindow)
+    buttonFrame = Frame(secondWindow, bg="lightblue")
     buttonFrame.pack(pady=20)
     
     def deleteItem():
@@ -36,15 +36,15 @@ def openSecondWindow ():
                 'state': state
             }
         )
-        items[len(items) - 1]['widget'].pack(fill=BOTH, padx=10, pady=10)
+        items[len(items) - 1]['widget'].pack(fill=BOTH, padx=100, pady=15)
         userEntry.delete(0, END)
         
-    deleteButton = Button(buttonFrame, text="Delete", command=deleteItem)
     addButton = Button(buttonFrame, text="Add Item", command=addItem)
+    deleteButton = Button(buttonFrame, text="Delete", command=deleteItem)
     
-    deleteButton.grid(row=0, column=0)
-    addButton.grid(row=0, column=1, padx=20)
-    listTitle = Label(secondWindow, text="To-Do List:", fg="black")
+    deleteButton.grid(row=0, column=1)
+    addButton.grid(row=0, column=0, padx=20)
+    listTitle = Label(secondWindow, text="To-Do List:", fg="black", bg="lightblue")
     listTitle.config(font=("Times New Roman", 18, "bold"))
     listTitle.pack(padx=10, pady=10)
     itemList = []
@@ -54,13 +54,13 @@ def openSecondWindow ():
 
 if __name__=='__main__':
     window = Tk()
-    window.title("Begin Your To-Do List")
+    window.title("Start Menu")
     window.geometry("500x500")
     window.config(background="lightblue")
     
-    mainLabel = Label(text="What would you like to accomplish today?",fg="black")
+    mainLabel = Label(text="What would you like to accomplish today?",fg="black", bg="lightblue")
     mainLabel.config(font=("Times New Roman", 24))
-    startLabel = Label(text="Begin your list here: ", fg="black")
+    startLabel = Label(text="Click here to begin: ", fg="black", bg="lightblue")
     startLabel.config(font=("Times New Roman", 22, "bold"))
     startButton = Button(text="Start", relief='flat', width=15, borderwidth=0, height=3,command=openSecondWindow)
     startButton.config(font=("Times New Roman", 20, "bold"))
