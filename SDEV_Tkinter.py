@@ -3,6 +3,7 @@ Goal: The purpose of this application is to allow the user to create
 a personalized to-do list. 
 '''
 from tkinter import *
+import tkinter.messagebox as messagebox
 
 def openSecondWindow ():
     '''Second window allowing to-do list to be made'''
@@ -34,19 +35,22 @@ def openSecondWindow ():
         
         if not text:
             text = userEntry.get()
-        state = IntVar()
-        items.append({
-                'widget': Checkbutton(secondWindow,
-                                      text=text,
-                                      fg="black",
-                                      activebackground="yellow",
-                                      variable=state
-                                      ),
-                'state': state
-            }
-        )
-        items[len(items) - 1]['widget'].pack(fill=BOTH, padx=100, pady=15)
-        userEntry.delete(0, END)
+        if text =="":
+            messagebox.showerror('Error', 'This is my error message.')
+        else:
+            state = IntVar()
+            items.append({
+                    'widget': Checkbutton(secondWindow,
+                                        text=text,
+                                        fg="black",
+                                        activebackground="yellow",
+                                        variable=state
+                                        ),
+                    'state': state
+                }
+            )
+            items[len(items) - 1]['widget'].pack(fill=BOTH, padx=100, pady=15)
+            userEntry.delete(0, END)
         
     addButton = Button(buttonFrame, text="Add Item", command=addItem)
     deleteButton = Button(buttonFrame, text="Delete", command=deleteItem)
@@ -82,3 +86,4 @@ if __name__=='__main__':
 
 #https://www.geeksforgeeks.org/python-grid-method-in-tkinter/ 
 #https://pythonassets.com/posts/create-a-new-window-in-tk-tkinter/
+#https://docs.python.org/3/library/tkinter.messagebox.html
