@@ -1,9 +1,8 @@
+'''
+Goal: The purpose of this application is to allow the user to create
+a personalized to-do list. 
+'''
 from tkinter import *
-
-
-items = []
-
-
 
 def openSecondWindow ():
     '''Second window allowing to-do list to be made'''
@@ -20,7 +19,7 @@ def openSecondWindow ():
     buttonFrame = Frame(secondWindow, bg="lightblue")
     buttonFrame.pack(pady=20)
     
-    
+    items = [] #list of items added to the check button widget.
     
     def deleteItem():
         '''Button function that allows check-buttons to be deleted'''
@@ -30,7 +29,6 @@ def openSecondWindow ():
                 item['widget'].destroy()
                 items.remove(item)
         
-                    
     def addItem(text=None):
         '''Button function that allows check-buttons to be added to the list'''
         
@@ -79,8 +77,6 @@ if __name__=='__main__':
     startLabel.pack(fill=BOTH, padx=10, pady=10)
     startButton.pack(padx=20, pady=20)
 
-    
-    
     window.mainloop()
 
 
