@@ -36,7 +36,7 @@ def openSecondWindow ():
         if not text:
             text = userEntry.get()
         if text =="":
-            messagebox.showerror('Error', 'This is my error message.')
+            messagebox.showerror('Error:', 'Entry box is empty. Type in box before adding to list')
         else:
             state = IntVar()
             items.append({
